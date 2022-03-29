@@ -330,6 +330,8 @@ void ImGuiRenderer::newFrame()
     // Setup time step
     double current_time =  QDateTime::currentMSecsSinceEpoch() / double(1000);
     io.DeltaTime = g_Time > 0.0 ? (float)(current_time - g_Time) : (float)(1.0f/60.0f);
+    if(io.DeltaTime == 0.0)
+        io.DeltaTime = (float)(1.0f/60.0f);
     g_Time = current_time;
     
     
